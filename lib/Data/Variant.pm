@@ -64,7 +64,7 @@ use Data::Dumper;
 use Switch;
 use UNIVERSAL qw(isa);
 
-our $VERSION = "0.02";
+our $VERSION = "0.03";
 
 our @ISA = qw(Exporter);
 our @EXPORT = qw(register_variant match set_match mkpat);
@@ -177,6 +177,8 @@ sub register_variant {
 
     # Last, export this variant to the caller so he gets the constructors.
     export_variant($dt,caller());
+
+    return 1;
 }
 
 =item export_variant(VARIANT)
@@ -339,8 +341,8 @@ sub match {
 	$obj = $matchObject;
     }
 
-    croak "I need a valid object for match"
-	unless isa $_[0], "Data::Variant";
+    croak "I need a valid object for match" 
+	unless isa $obj, "Data::Variant";
 
     my $constr = shift;
 
