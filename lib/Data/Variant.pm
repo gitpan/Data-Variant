@@ -64,7 +64,7 @@ use Data::Dumper;
 use Switch;
 use UNIVERSAL qw(isa);
 
-our $VERSION = "0.03";
+our $VERSION = "0.04";
 
 our @ISA = qw(Exporter);
 our @EXPORT = qw(register_variant match set_match mkpat);

@@ -11,3 +11,6 @@
     CPAN testers is a good idea.
     This is my first released module ever, I promise this will go more
 stable now.
+
+0.04 Sat Oct 30 23:54:55 WEST 2004
+  - Woops. I should have changed the MANIFEST to include the tests.

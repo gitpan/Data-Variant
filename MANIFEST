@@ -7,3 +7,4 @@ README
 TODO
 META.yml                                 Module meta-data (added by MakeMaker)
 lambda.pl
+t/basic.t
