@@ -43,8 +43,8 @@ you use your data structure as intended (well, as declared really but
 if you are wise these two coincide).
 
 For the programmer unused to pattern matching, looking at the
-synoposis or the examples towards the end is probably the easiest way
-to get an idea of how to use the module.
+synoposis or the examples is probably the easiest way to get an idea
+of how to use the module.
 
 =head1 FUNCTIONS
 
@@ -64,7 +64,7 @@ use Data::Dumper;
 use Switch;
 use UNIVERSAL qw(isa);
 
-our $VERSION = "0.01";
+our $VERSION = "0.02";
 
 our @ISA = qw(Exporter);
 our @EXPORT = qw(register_variant match set_match mkpat);
@@ -314,7 +314,7 @@ C<set_match>.
 
 It its second form, with only an object as parameter, it returns a
 function reference that is useful in a C<switch> statement. The
-contents of each C<case> must then be created using C<mkpat>, see L</Examples>.
+contents of each C<case> must then be created using C<mkpat>.
 
 =cut
 
@@ -382,7 +382,7 @@ sub match {
 
 This creates a reference to an array containing what would normally be
 the input to match. This is mainly useful when working with C<switch>
-statements, see L</Examples>.
+statements.
 
 =cut
 
@@ -437,7 +437,7 @@ and optional.
 
 =head2 Comparision with Haskell/ML
 
-    The data type C<Tree> given in L</SYNOPSIS> would look like this in 
+The data type C<Tree> given in L</SYNOPSIS> would look like this in 
 Haskell:
 
     data Tree = Empty 
@@ -446,6 +446,7 @@ Haskell:
 
 
 In O'Caml you would write something like:
+
     type tree = Empty 
               | Leaf of int
               | Node of tree * tree

@@ -1,2 +1,7 @@
 0.01 Sat Oct  2 17:32:26 MEST 2004
   - First release.
+
+0.02 Sat Oct 30 13:35:22 MEST 2004
+  - Cleanup
+     * Documentation patches
+     * Improved the lambda.pl example.
