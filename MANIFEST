@@ -1,0 +1,9 @@
+Changes
+INSTALL
+lib/Data/Variant.pm
+Makefile.PL
+MANIFEST
+README
+TODO
+META.yml                                 Module meta-data (added by MakeMaker)
+lambda.pl
