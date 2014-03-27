@@ -1,13 +1,13 @@
 # Data::Variant.pm -- Algebraic datatypes for Perl
 #
-# Copyright (c) 2004 Viktor Leijon (leijon@ludd.ltu.se) All rights reserved. 
+# Copyright (c) 2004-2013 Viktor Leijon (leijon@ludd.ltu.se) All rights reserved. 
 # This program is free software; you can redistribute it and/or modify 
 # it under the same terms as Perl itself. 
 #
 
-=head1  NAME
+=head1 NAME
 
-Data::Variant -- Variant datatypes for perl.
+Data::Variant - Variant datatypes for perl.
 
 =head1 SYNOPSIS
 
@@ -62,9 +62,8 @@ use Carp;
 use Exporter;
 use Data::Dumper;
 use Switch;
-use UNIVERSAL qw(isa);
 
-our $VERSION = "0.04";
+our $VERSION = "0.05";
 
 our @ISA = qw(Exporter);
 our @EXPORT = qw(register_variant match set_match mkpat);
@@ -200,7 +199,7 @@ sub export_variant {
     # This function is also called by register_variant.
     $module = defined $module ? $module : caller;
     
-    $dt = $dt->{Type} if isa $dt, "Data::Variant";
+    $dt = $dt->{Type} if $dt->isa("Data::Variant");
 
     # We need to export all symbols to the caller so we can use them to
     # construct new instances of the variant.
@@ -273,7 +272,7 @@ sub constructor {
 	    case "<REF>" { $badtype = 1 unless ref $val }
 	    case "*"     { $badtype = 0 }
 	    else         { # Variant type!
-		$badtype = 1 unless ((isa $val, "Data::Variant") &&
+		$badtype = 1 unless (($val->isa("Data::Variant")) &&
 				     $val->{Type} eq $var);
 	    }
 	}
@@ -325,7 +324,7 @@ sub match {
 
     if (@_ == 1) {
 	croak "A lone argument has to be a variant reference" 
-	    unless isa $_[0], "Data::Variant";
+	    unless $_[0]->isa("Data::Variant");
 	my $obj = $_[0];
 	# Create a closure and return it. 
 	return sub { 
@@ -342,7 +341,7 @@ sub match {
     }
 
     croak "I need a valid object for match" 
-	unless isa $obj, "Data::Variant";
+	unless $obj->isa("Data::Variant");
 
     my $constr = shift;
 
@@ -415,7 +414,7 @@ C<match> can be left out in subsequent calls.
 sub set_match {
     $matchObject = shift;
     warn "Parameter to set_match not a Data::Variant"
-	unless (isa $matchObject, "Data::Variant");
+	unless ($matchObject->isa("Data::Variant"));
 }
 
 

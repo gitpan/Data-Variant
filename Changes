@@ -14,3 +14,7 @@ stable now.
 
 0.04 Sat Oct 30 23:54:55 WEST 2004
   - Woops. I should have changed the MANIFEST to include the tests.
+  
+0.05 Thu Mar 27 19:15:22 CET 2014
+  - Updated to follow the proper metadata convention.
+  - Removed UNIVERSAL
